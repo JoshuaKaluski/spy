@@ -30,7 +30,7 @@ passport.use(
       }
 
       //Create a new User if none exist
-      let user = await new User({googleID: profile.id}).save();
+      let user = await new User({googleID: profile.id, profilePic: profile.photos[0].value}).save();
 
       //Exit with new User
       done(null, user);

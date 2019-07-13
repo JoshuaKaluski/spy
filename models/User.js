@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
   googleID: String,
-  facebookID: String
+  profilePic: String
 });
 
 module.exports = User = mongoose.model('users', UserSchema);
