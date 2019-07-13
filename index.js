@@ -23,5 +23,6 @@ connectDB();
 
 //Define routes
 app.use('/auth', require('./routes/auth'));
+app.use('/game', require('./routes/game'));
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
