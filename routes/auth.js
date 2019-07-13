@@ -18,7 +18,7 @@ Access:      Private
 */
 router.get(
   "/google/callback",
-  passport.authenticate("google", {failureRedirect: '/google'}),
+  passport.authenticate("google"),
   (req, res) => {
     res.redirect('/game');
   }
