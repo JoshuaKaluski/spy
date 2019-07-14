@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import clsx from 'clsx';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import {Typography} from "@material-ui/core";
+import {Store} from '../Store';
+import {signIn as googleSignIn} from '../actions/googleAuth';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -27,11 +29,12 @@ const Google = (props) => (
 );
 
 export default function GoogleSignInButton() {
+  const {state, dispatch} = useContext(Store);
   const classes = useStyles();
 
   return (
     <div>
-      <Button variant="contained" color="secondary" className={classes.button}>
+      <Button href='/auth/google' variant="contained" color="secondary" className={classes.button} onClick={() => dispatch(googleSignIn())}>
         <Google className={classes.leftIcon} />
         <Typography variant='button'>
           Sign In with Google
