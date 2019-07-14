@@ -2,9 +2,9 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 import Header from './Header';
+import Landing from './Landing'
 
 const Game = () => <h2>Game</h2>
-const Landing = () => <h2>Landing</h2>
 
 const App = () => {
   return (
