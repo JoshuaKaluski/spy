@@ -3,5 +3,13 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom'
 
 import App from './components/App';
+import {StoreProvider} from "./Store";
 
-ReactDOM.render(<BrowserRouter><App/></BrowserRouter>, document.querySelector('#root'));
+ReactDOM.render(
+  <StoreProvider>
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
+  </StoreProvider>,
+  document.querySelector('#root')
+);

@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexGrow: 1,
     height: '3em',
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -23,8 +23,22 @@ const Credit = () => {
   return (
     <Fragment>
       <div>
-        {font('Icons made by ')}
+        {font('Spy icon made by ')}
         <a href="https://www.flaticon.com/authors/itim2101" title="itim2101">
+          {font('itim2101')}
+        </a>
+        {font(' from ')}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          {font('www.flaticon.com')}
+        </a>
+        {font(' is licensed by ')}
+        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+          {font('CC 3.0 BY')}
+        </a>
+      </div>
+      <div>
+        {font('Google icon made by ')}
+        <a href="https://www.freepik.com/" title="Freepik">
           {font('itim2101')}
         </a>
         {font(' from ')}

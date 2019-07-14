@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as Logo} from '../svg/detective.svg';
+import {ReactComponent as Logo} from '../svg/SpyIcon.svg';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
