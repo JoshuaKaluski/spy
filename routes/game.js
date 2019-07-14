@@ -8,7 +8,7 @@ Description: Path to create or join a game
 Access:      Private
 */
 router.get('/', loggedIn, (req, res) => {
-  res.send('Game page');
+  res.json({msg: 'Game page'});
 });
 
 module.exports = router;

@@ -35,7 +35,7 @@ router.get('/logout', (req, res) => {
 });
 
 /*
-Route:       GET auth/api/me
+Route:       GET auth/me
 Description: Send current user's profile
 Access:      Private
 */
