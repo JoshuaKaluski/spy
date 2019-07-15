@@ -20,7 +20,9 @@ router.get(
   "/google/callback",
   passport.authenticate("google"),
   (req, res) => {
-    res.json({user: req.user});
+    console.log(req);
+    //CHANGE BEFORE PROD
+    res.redirect('http://localhost:3000/game');
   }
 );
 
