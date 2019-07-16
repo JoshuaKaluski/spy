@@ -62,7 +62,6 @@ const Footer = () => {
             </a>
           </div>
         </Typography>
-
       </div>
     )
   };

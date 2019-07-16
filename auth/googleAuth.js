@@ -13,6 +13,22 @@ passport.deserializeUser((id, done) => {
   })
 });
 
+const callback = async (accessToken, refreshToken, profile, done) => {
+  console.log(accessToken);
+  let existingUser = await User.findOne({googleID: profile.id});
+
+  if (existingUser) {
+    //Exit callback with existing User
+    return done(null, existingUser);
+  }
+
+  //Create a new User if none exist
+  let user = await new User({googleID: profile.id, profilePic: profile.photos[0].value}).save();
+
+  //Exit with new User
+  done(null, user);
+};
+
 passport.use(
   new GoogleStrategy(
     {
@@ -20,20 +36,5 @@ passport.use(
       clientSecret: googleClientSecret,
       callbackURL: googleRedirect,
       proxy: true
-    },
-    async (accessToken, refreshToken, profile, done) => {
-      let existingUser = await User.findOne({googleID: profile.id});
-
-      if (existingUser) {
-        //Exit callback with existing User
-        return done(null, existingUser);
-      }
-
-      //Create a new User if none exist
-      let user = await new User({googleID: profile.id, profilePic: profile.photos[0].value}).save();
-
-      //Exit with new User
-      done(null, user);
-    }
-  )
+    }, callback)
 );

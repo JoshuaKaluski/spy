@@ -2,14 +2,21 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
+const googleAuth = passport.authenticate("google", {
+  scope: ["profile", "email"]
+});
+
+const addSocketIdToSession = (req, res, next) => {
+  req.session.socketId = req.query.socketId;
+  next();
+};
+
 /*
 Route:       GET auth/google
 Description: Start Google OAuth process
 Access:      Public
 */
-router.get('/google', passport.authenticate("google", {
-  scope: ["profile", "email"]
-}));
+router.get('/google', addSocketIdToSession, googleAuth);
 
 /*
 Route:       GET auth/google/callback
@@ -18,9 +25,9 @@ Access:      Private
 */
 router.get(
   "/google/callback",
-  passport.authenticate("google"),
+  googleAuth,
   (req, res) => {
-    console.log(req);
+    console.log(req.user);
     //CHANGE BEFORE PROD
     res.redirect('http://localhost:3000/game');
   }
@@ -42,7 +49,8 @@ Description: Send current user's profile
 Access:      Private
 */
 router.get('/me', (req, res) => {
-  res.send(req.user);
+  let user = req.user;
+  res.send(user);
 });
 
 module.exports = router;
