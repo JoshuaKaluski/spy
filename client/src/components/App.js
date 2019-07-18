@@ -6,6 +6,7 @@ import Header from './Header';
 import Landing from './Landing';
 import Login from './Login';
 import Game from './Game';
+import Create from './Create'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route exact path='/' component={Landing}/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/game' component={Game}/>
+        <Route exact path='/game/create' component={Create}/>
       </Switch>
     </div>
   )

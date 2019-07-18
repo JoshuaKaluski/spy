@@ -27,8 +27,8 @@ const Game = () => {
         Create or join a game to start playing Spy!
       </Typography>
       <div className={classes.buttons}>
-        <Button color='primary' variant='contained'>Create a game</Button>
-        <Button color='secondary' variant='contained'>Join a game</Button>
+        <Button href='/game/create' color='primary' variant='contained'>Create a game</Button>
+        <Button href='/game/join' color='secondary' variant='contained'>Join a game</Button>
       </div>
     </Paper>
   )
